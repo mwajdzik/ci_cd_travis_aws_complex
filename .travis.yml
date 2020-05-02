@@ -7,7 +7,7 @@ before_install:
   - docker build -t dornick/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true USERNAME/react-test npm test
+  - docker run -e CI=true dornick/react-test npm test
 
 after_success:
   - docker build -t dornick/complex-client ./client
@@ -16,13 +16,13 @@ after_success:
   - docker build -t dornick/complex-worker ./worker
 
   # log in to the docker CLI
-#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # push images to docker hub
-#   - docker push dornick/complex-client
-#   - docker push dornick/complex-nginx
-#   - docker push dornick/complex-server
-#   - docker push dornick/complex-worker
+  - docker push dornick/complex-client
+  - docker push dornick/complex-nginx
+  - docker push dornick/complex-server
+  - docker push dornick/complex-worker
 
 # deploy:
 #   provider: elasticbeanstalk

@@ -13,6 +13,12 @@ You can use a Dockerrun.aws.json file for a multi-container Docker environment.
 
 ----------------------------------------------------------
 
+Travis:
+
+1. Specify DOCKER_ID, DOCKER_PASSWORD
+
+----------------------------------------------------------
+
 AWS:
 
 1. Elastic Beanstalk
