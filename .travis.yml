@@ -24,15 +24,15 @@ after_success:
   - docker push dornick/complex-server
   - docker push dornick/complex-worker
 
-# deploy:
-#   provider: elasticbeanstalk
-#   region: eu-central-1
-#   app: amw061-complex-dev
-#   env: Amw061ComplexDev-env
-#   bucket_name: elasticbeanstalk-eu-central-1-943246088764
-#   bucket_path: amw061-complex-dev
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key:
-#     secure: $AWS_SECRET_KEY
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: us-west-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-west-2-311974803617
+  bucket_path: multi-docker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
